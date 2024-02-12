@@ -1,19 +1,21 @@
 package nezet;
 
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import modell.Feladat;
-import modell.Tabla;
 
 public class FrameNezet extends javax.swing.JFrame {
 
     public FrameNezet() {
-        Feladat modell = new Feladat();
         initComponents();
-        setjTextArea1(modell.megjelenit());
+        Feladat modell = new Feladat();
+        setTxaFeladat(modell.megjelenit());
         modell.elhelyez(8);
-        setTxafeladat(modell.megjelenit());
-        setTxafeladat2(modell.uresOszlopokSzáma() + "\n" + modell.uresSorokSzáma());
+        setTxafeladat2(modell.megjelenit());
+        setOszlop(modell.uresOszlopokSzáma());
+        setSor(modell.uresSorokSzáma());
+
     }
 
     @SuppressWarnings("unchecked")
@@ -24,24 +26,24 @@ public class FrameNezet extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txaFeladat = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        txafeladat = new javax.swing.JTextArea();
+        txaFeladat2 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txafeladat2 = new javax.swing.JTextArea();
+        oszlop = new javax.swing.JLabel();
+        sor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("4. feladat:");
+        jLabel1.setText("4. feladat: Az üres tábla");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-        jTextArea1.getAccessibleContext().setAccessibleParent(jPanel1);
+        txaFeladat.setColumns(20);
+        txaFeladat.setRows(5);
+        jScrollPane2.setViewportView(txaFeladat);
+        txaFeladat.getAccessibleContext().setAccessibleParent(jPanel1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,17 +64,17 @@ public class FrameNezet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("4. feladat", jPanel1);
 
-        jLabel2.setText("6. feladat:");
+        jLabel2.setText("6. feladat: A feltöltött tábla");
 
-        txafeladat.setColumns(20);
-        txafeladat.setRows(5);
-        jScrollPane3.setViewportView(txafeladat);
+        txaFeladat2.setColumns(20);
+        txaFeladat2.setRows(5);
+        jScrollPane3.setViewportView(txaFeladat2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -93,17 +95,17 @@ public class FrameNezet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("6. feladat", jPanel2);
 
-        jLabel3.setText("9. feladat:");
+        jLabel3.setText("9. feladat: Üres oszlopok és sorok száma");
 
-        txafeladat2.setColumns(20);
-        txafeladat2.setRows(5);
-        jScrollPane4.setViewportView(txafeladat2);
+        oszlop.setText("jLabel4");
+
+        sor.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -112,20 +114,21 @@ public class FrameNezet extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4))
-                .addContainerGap())
+                    .addComponent(jLabel3)
+                    .addComponent(oszlop)
+                    .addComponent(sor))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(oszlop)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(sor)
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("9. feladat", jPanel3);
@@ -155,16 +158,23 @@ public class FrameNezet extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public void setjTextArea1(String str) {
-        this.jTextArea1.setText(str);
+    public void setTxaFeladat(String str) {
+        txaFeladat.setText(str);
     }
 
-    public void setTxafeladat(String str) {
-        this.txafeladat.setText(str);
-    }
-
+    /**
+     * @param args the command line arguments
+     */
     public void setTxafeladat2(String str) {
-        this.txafeladat2.setText(str);
+        txaFeladat2.setText(str);
+    }
+
+    public void setOszlop(String str) {
+        oszlop.setText(str);
+    }
+
+    public void setSor(String str) {
+        sor.setText(str);
     }
 
 
@@ -177,10 +187,10 @@ public class FrameNezet extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea txafeladat;
-    private javax.swing.JTextArea txafeladat2;
+    private javax.swing.JLabel oszlop;
+    private javax.swing.JLabel sor;
+    private javax.swing.JTextArea txaFeladat;
+    private javax.swing.JTextArea txaFeladat2;
     // End of variables declaration//GEN-END:variables
 }

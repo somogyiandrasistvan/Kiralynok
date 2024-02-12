@@ -60,7 +60,7 @@ public class Feladat {
                 uresOszlopok++;
             }
         }
-        String str = "Ures oszlopok: " + uresOszlopok;
+        String str = "Oszlopok: " + uresOszlopok;
 
         return str;
     }
@@ -72,7 +72,7 @@ public class Feladat {
                 uresSorok++;
             }
         }
-        String str = "Ures sorok: " + uresSorok;
+        String str = "Sorok: " + uresSorok;
 
         return str;
     }

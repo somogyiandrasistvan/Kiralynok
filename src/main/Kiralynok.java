@@ -11,8 +11,9 @@ public class Kiralynok {
     }
 
     public void ini() {
-        new KonzolVezerlo();
-        FrameNezet nezet = new FrameNezet();
+        Feladat modell = new Feladat();
+        Feladat modell2 = new Feladat();
+        new KonzolVezerlo(modell);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrameNezet().setVisible(true);

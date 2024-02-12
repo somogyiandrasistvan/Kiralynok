@@ -8,9 +8,9 @@ public class KonzolVezerlo {
     private KonzolNezet nezet;
     private Feladat modell;
 
-    public KonzolVezerlo() {
+    public KonzolVezerlo(Feladat modell) {
         nezet = new KonzolNezet();
-        modell = new Feladat();
+        this.modell = modell;
         mutat();
     }
 
@@ -21,8 +21,8 @@ public class KonzolVezerlo {
         modell.elhelyez(8);
         nezet.Kiir(modell.megjelenit());
         nezet.Kiir("9. feladat: Üres oszlopok és sorok száma");
-        nezet.Kiir("Oszlopok: " + modell.uresOszlopokSzáma());
-        nezet.Kiir("Sorok: " + modell.uresSorokSzáma());
+        nezet.Kiir(modell.uresOszlopokSzáma());
+        nezet.Kiir(modell.uresSorokSzáma());
 
     }
 

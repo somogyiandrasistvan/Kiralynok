@@ -7,15 +7,12 @@ import modell.Tabla;
 
 public class FrameNezet extends javax.swing.JFrame {
 
-    private Tabla t;
-
     public FrameNezet() {
         Feladat modell = new Feladat();
         initComponents();
-        t = new Tabla('#');
-        setjTextArea1(t.megjelenit());
-        t.elhelyez(8);
-        setTxafeladat(t.megjelenit());
+        setjTextArea1(modell.megjelenit());
+        modell.elhelyez(8);
+        setTxafeladat(modell.megjelenit());
         setTxafeladat2(modell.uresOszlopokSzáma() + "\n" + modell.uresSorokSzáma());
     }
 

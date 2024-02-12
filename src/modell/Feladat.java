@@ -10,12 +10,29 @@ public class Feladat {
 
     public Feladat() {
         t = new Tabla('#');
-        System.out.println(t.megjelenit());
-        t.elhelyez(8);
-        System.out.println(t.megjelenit());
+    }
 
-        System.out.println(uresOszlopokSzáma());
-        System.out.println(uresSorokSzáma());
+    public void elhelyez(int N) {
+        for (int i = 0; i < N; i++) {
+            int sor, oszlop;
+            do {
+                sor = rnd.nextInt(8);
+                oszlop = rnd.nextInt(8);
+            } while (t.getT()[sor][oszlop] != t.getUresCella());
+            t.getT()[sor][oszlop] = 'K';
+        }
+    }
+
+    public String megjelenit() {
+        String str = "";
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                str += t.getT()[i][j];
+            }
+            str += "\n";
+        }
+
+        return str;
     }
 
     public boolean uresOszlop(int oszlop) {
@@ -60,8 +77,8 @@ public class Feladat {
         return str;
     }
 
-    public void kiir(String msg) {
-        System.out.println(msg);
+    public Tabla getT() {
+        return t;
     }
 
 }

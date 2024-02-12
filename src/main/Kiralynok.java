@@ -2,6 +2,7 @@ package main;
 
 import modell.Feladat;
 import nezet.FrameNezet;
+import vezerlo.KonzolVezerlo;
 
 public class Kiralynok {
 
@@ -10,7 +11,7 @@ public class Kiralynok {
     }
 
     public void ini() {
-        Feladat modell = new Feladat();
+        new KonzolVezerlo();
         FrameNezet nezet = new FrameNezet();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

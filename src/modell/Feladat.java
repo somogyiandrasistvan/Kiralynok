@@ -13,19 +13,20 @@ public class Feladat {
 
         megjelenit();
         elhelyez(8);
-        UresOszlop(2);
-        UresSor(3);
         
+        uresOszlopokSzáma();
+        uresSorokSzáma();
+
     }
 
     public void megjelenit() {
-        System.out.println();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 System.out.print(t.getT()[i][j]);
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void elhelyez(int N) {
@@ -40,7 +41,7 @@ public class Feladat {
         megjelenit();
     }
 
-    public boolean UresOszlop(int oszlop) {
+    public boolean uresOszlop(int oszlop) {
         for (int i = 0; i < 8; i++) {
             if (t.getT()[i][oszlop] == 'K') {
                 return false;
@@ -49,12 +50,36 @@ public class Feladat {
         return true;
     }
 
-    public boolean UresSor(int sor) {
+    public boolean uresSor(int sor) {
         for (int j = 0; j < 8; j++) {
             if (t.getT()[sor][j] == 'K') {
                 return false;
             }
         }
         return true;
+    }
+
+    public void uresOszlopokSzáma() {
+        int uresOszlopok = 0;
+        for (int j = 0; j < 8; j++) {
+            if (uresOszlop(j)) {
+                uresOszlopok++;
+            }
+        }
+        kiir("Ures oszlopok: " + uresOszlopok);
+    }
+
+    public void uresSorokSzáma() {
+        int uresSorok = 0;
+        for (int i = 0; i < 8; i++) {
+            if (uresSor(i)) {
+                uresSorok++;
+            }
+        }
+        kiir("Ures sorok: " + uresSorok);
+    }
+
+    public void kiir(String msg) {
+        System.out.println(msg);
     }
 }

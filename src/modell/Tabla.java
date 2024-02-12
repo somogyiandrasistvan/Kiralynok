@@ -20,4 +20,10 @@ public class Tabla {
         return T;
     }
 
+    public char getUresCella() {
+        return UresCella;
+    }
+    
+    
+
 }

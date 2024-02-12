@@ -2,6 +2,7 @@ package nezet;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import modell.Feladat;
 import modell.Tabla;
 
 public class FrameNezet extends javax.swing.JFrame {
@@ -9,11 +10,13 @@ public class FrameNezet extends javax.swing.JFrame {
     private Tabla t;
 
     public FrameNezet() {
+        Feladat modell = new Feladat();
         initComponents();
         t = new Tabla('#');
         setjTextArea1(t.megjelenit());
         t.elhelyez(8);
         setTxafeladat(t.megjelenit());
+        setTxafeladat2(modell.uresOszlopokSzáma() + "\n" + modell.uresSorokSzáma());
     }
 
     @SuppressWarnings("unchecked")
@@ -164,7 +167,7 @@ public class FrameNezet extends javax.swing.JFrame {
     }
 
     public void setTxafeladat2(String str) {
-        this.txafeladat.setText(str);
+        this.txafeladat2.setText(str);
     }
 
 

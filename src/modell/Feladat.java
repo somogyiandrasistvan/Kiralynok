@@ -14,8 +14,8 @@ public class Feladat {
         t.elhelyez(8);
         System.out.println(t.megjelenit());
 
-        uresOszlopokSzáma();
-        uresSorokSzáma();
+        System.out.println(uresOszlopokSzáma());
+        System.out.println(uresSorokSzáma());
     }
 
     public boolean uresOszlop(int oszlop) {
@@ -36,24 +36,28 @@ public class Feladat {
         return true;
     }
 
-    public void uresOszlopokSzáma() {
+    public String uresOszlopokSzáma() {
         int uresOszlopok = 0;
         for (int j = 0; j < 8; j++) {
             if (uresOszlop(j)) {
                 uresOszlopok++;
             }
         }
-        kiir("Ures oszlopok: " + uresOszlopok);
+        String str = "Ures oszlopok: " + uresOszlopok;
+
+        return str;
     }
 
-    public void uresSorokSzáma() {
+    public String uresSorokSzáma() {
         int uresSorok = 0;
         for (int i = 0; i < 8; i++) {
             if (uresSor(i)) {
                 uresSorok++;
             }
         }
-        kiir("Ures sorok: " + uresSorok);
+        String str = "Ures sorok: " + uresSorok;
+
+        return str;
     }
 
     public void kiir(String msg) {
